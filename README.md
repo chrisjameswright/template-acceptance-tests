@@ -104,3 +104,9 @@ The tests are executed by running **run_wave.sh** (which calls WaveRunner.scala)
  - **Outputs**
   When executed successfully a file is generated under the 'target' class of the project under zap-reports and listed as **report.html**
   Select this file to access 'chrome' or 'firefox' icon which will open the report in your Chrome or Firefox browser
+
+ ### Messages
+    
+ If there is a requirement to verify any text within your application users should create a messages.properties file and place it in the following location where it can be referenced:
+  
+  ~/Applications/pe/template-acceptance-tests/src/test/resources/   
