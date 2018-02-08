@@ -20,6 +20,7 @@ import org.openqa.selenium.{Proxy, WebDriver}
 
 import scala.collection.JavaConversions._
 import scala.io.Source
+import scala.language.postfixOps
 
 
 object SingletonDriver extends Driver

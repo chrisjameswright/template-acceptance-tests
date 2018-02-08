@@ -15,4 +15,3 @@ addSbtPlugin("com.dadrox" % "sbt-test-reports" % "0.1")
 
 addSbtPlugin("uk.gov.hmrc" % "hmrc-resolvers" % "0.2.0")
 
-//addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.8.2")

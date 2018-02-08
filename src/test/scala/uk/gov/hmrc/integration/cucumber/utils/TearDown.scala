@@ -3,6 +3,7 @@ package uk.gov.hmrc.integration.cucumber.utils
 import cucumber.api.Scenario
 import cucumber.api.java.{After, Before}
 import org.openqa.selenium.{OutputType, TakesScreenshot, WebDriver, WebDriverException}
+import scala.language.postfixOps
 
 
 trait TearDown {

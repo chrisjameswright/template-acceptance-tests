@@ -5,8 +5,8 @@ import java.util.regex.Pattern
 
 import uk.gov.hmrc.{ZapAlertFilter, ZapTest}
 
-import uk.gov.hmrc.integration.cucumber.utils.ServiceURLs.TestOnly._
-import uk.gov.hmrc.integration.cucumber.utils.ServiceURLs._
+//import uk.gov.hmrc.integration.cucumber.utils.ServiceURLs.TestOnly._
+//import uk.gov.hmrc.integration.cucumber.utils.ServiceURLs._
 
 class ZapRunner extends ZapTest{
 
