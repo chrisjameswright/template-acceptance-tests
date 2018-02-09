@@ -34,8 +34,6 @@ Each step of the feature files is defined by executable test steps in the scala 
 In order to run the tests via BrowserStack you need to create the following files with your BrowserStack username and automate key: 
  
   ~/Applications/hmrc-development-environment/hmrc/itr-acceptance-tests/src/test/resources/browserConfig.properties
-
-**Note** - you can use the exampleBrowserConfig.properties file within this repository to achieve this by either copying/renaming **or** refactoring the file to 'browserConfig.properties'
  
 
 To get your username and automate key go [here](https://www.browserstack.com/accounts/settings)
