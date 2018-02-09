@@ -81,18 +81,6 @@ To execute select **run_browserstack.sh** script
 Note i - if you only wish to run either the browsers or devices you need to remove the relevant entry from within run_browserstack.sh
 
 Note ii - the changes made to browserConfig.properties should not be pushed to GitHub and therefore you should make sure that this file is included on the gitignore file for your project
-
-### Accessibility Testing via WAVE
-
-Initially please see Confluence instructions regarding implementation which can be located [here](https://confluence.tools.tax.service.gov.uk/display/DDCTC/WAVE+Accessibility)
-
-For this project we have implemented a separate Accessibility.feature file which contains an 'end 2 end' flow passing through pages which are required on the WAVE report. The feature is tagged with @WAVE which is embedded as the 'Array' tag held in WaveRunner.scala
-
-The tests are executed by running **run_wave.sh** (which calls WaveRunner.scala)
-
- - **Outputs**
- When executed successfully a file is generated under the 'target' class of the project under wave-reports and listed as **index.html**
- Select this file to access 'chrome' or 'firefox' icon which will open the report in your Chrome or Firefox browser
  
  ### Penetration Testing via ZAP
  

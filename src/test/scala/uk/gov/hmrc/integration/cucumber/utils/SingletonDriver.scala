@@ -151,7 +151,6 @@ class Driver {
       if (Option(System.getProperty("qa.proxy")).isDefined) capabilities.setCapability(CapabilityType.PROXY, initProxy())
       options.setCapability("takesScreenshot", true)
       options.setCapability("javascript.enabled", javascriptEnabled)
-      options.addExtensions(new File("addons/waveLocal.crx"))
       options.addArguments("--start-maximized")
       capabilities.setCapability(ChromeOptions.CAPABILITY, options)
       if (seleniumProxy isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
