@@ -1,3 +1,5 @@
 @e2e
 
-  //Add end to end features here if required.
+Feature: Running against a web browser
+
+  Scenario: E2E scenario description

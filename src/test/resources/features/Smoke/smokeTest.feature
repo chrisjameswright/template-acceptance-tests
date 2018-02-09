@@ -1,3 +1,5 @@
 @smoke
 
-//Add smoke features here if required.
+Feature: Running against a web browser
+
+  Scenario: Smoke test scenario description
