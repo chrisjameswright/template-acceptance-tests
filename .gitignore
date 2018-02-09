@@ -17,7 +17,7 @@ dist
 /RUNNING_PID
 /.settings
 *.iws
-ZapReport.html
+*.html
 browserConfig.properties
 BrowserStackLocal
 BrowserStackLocal-linux-x64.zip

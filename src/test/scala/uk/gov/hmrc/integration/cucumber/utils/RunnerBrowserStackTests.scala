@@ -11,7 +11,6 @@ import org.junit.runner.RunWith
   glue = Array("uk.gov.hmrc.integration.cucumber.stepdefs"),
   format = Array ("pretty", "html:target/cucumber", "json:target/cucumber.json"),
   tags = Array("@BrowserStack")
-  //tags = Array("@Suite,@BAPP5,@Pending,@shutdown","~@Wip,~@Zap,~@BAPP-REGISTER")
 )
 class RunnerBrowserStackTests {
 }

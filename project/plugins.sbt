@@ -7,11 +7,6 @@ resolvers ++= Seq(
   "hmrc-releases" at hmrcRepoHost + "/content/repositories/hmrc-releases",
   "typesafe-releases" at hmrcRepoHost + "/content/repositories/typesafe-releases")
 
-//addSbtPlugin("uk.gov.hmrc" % "sbt-common-build" % "latest.integration")
-
-addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.6.0")
-
 addSbtPlugin("com.dadrox" % "sbt-test-reports" % "0.1")
 
 addSbtPlugin("uk.gov.hmrc" % "hmrc-resolvers" % "0.4.0")
-

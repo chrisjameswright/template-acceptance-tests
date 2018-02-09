@@ -20,7 +20,6 @@ import org.openqa.selenium.{Proxy, WebDriver}
 
 import scala.collection.JavaConversions._
 import scala.io.Source
-import scala.language.postfixOps
 
 
 object SingletonDriver extends Driver
@@ -354,7 +353,6 @@ class Driver {
       case "zap-firefox" => createZapFirefoxDriver
       case "zap-chrome" => createZapChromeDriver
       case "chrome-headless" => createChromeHeadlessDriver
-
       case SAUCY => createSaucyDriver
       case _ => throw new IllegalArgumentException(s"Browser type not recognised: -D$environmentProperty")
     }

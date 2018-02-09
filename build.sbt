@@ -1,9 +1,8 @@
 name := "template-acceptance-tests"
 
-version := "0.0.1"
+version := "0.1.0"
 
 scalaVersion := "2.11.7"
-
 
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
@@ -11,17 +10,13 @@ val hmrcRepoHost = java.lang.System.getProperty("hmrc.repo.host", "https://nexus
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 
-evictionWarningOptions in update := EvictionWarningOptions.default
-  .withWarnTransitiveEvictions(false)
-  .withWarnDirectEvictions(false)
-
 resolvers ++= Seq(
   "hmrc-snapshots" at hmrcRepoHost + "/content/repositories/hmrc-snapshots",
   "hmrc-releases" at hmrcRepoHost + "/content/repositories/hmrc-releases",
-  "typesafe-releases" at hmrcRepoHost + "/content/repositories/typesafe-releases")
-
-resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
-resolvers += Resolver.bintrayRepo("hmrc", "releases")
+  "typesafe-releases" at hmrcRepoHost + "/content/repositories/typesafe-releases",
+  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
+  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
+  Resolver.bintrayRepo("hmrc", "releases"))
 
 libraryDependencies ++= Seq(
   "org.seleniumhq.selenium" % "selenium-java" % "3.7.1",

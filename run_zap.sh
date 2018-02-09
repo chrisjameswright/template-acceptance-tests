@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ### Populate Stub with Data
-./src/test/resources/stub_data/setup.sh "local" "9084"
+./src/test/resources/stub_data/setup.sh "local" "???"
 
 echo "Running browser tests..."
 ### Run Test Suite with ZAP browser capabilities
