@@ -1,12 +1,7 @@
 package uk.gov.hmrc.integration.cucumber.utils
 
-import java.net.URL
-import java.util.regex.Pattern
-
 import uk.gov.hmrc.{ZapAlertFilter, ZapTest}
 
-//import uk.gov.hmrc.integration.cucumber.utils.ServiceURLs.TestOnly._
-//import uk.gov.hmrc.integration.cucumber.utils.ServiceURLs._
 
 class ZapRunner extends ZapTest{
 
@@ -25,7 +20,7 @@ class ZapRunner extends ZapTest{
     * testUrl is a required field - you'll need to set it in this file, for your project to compile.
     * It needs to be the URL of the start page of your application (not just localhost:port).
     */
-  override val testUrl: String = "http://localhost:9561/report-quarterly/income-and-expenses/sign-up"
+  override val testUrl: String = "http://localhost:???"
 
   /**
     * alertsBaseUrl is not a required field. This is the url that the zap-automation library
@@ -34,7 +29,7 @@ class ZapRunner extends ZapTest{
     * from logging in, therefore we recommend that you set this to be the base url for the
     * service you are interested in.
     */
-  override val alertsBaseUrl: String = "http://localhost:9561/report-quarterly/income-and-expenses/sign-up"
+  override val alertsBaseUrl: String = "http://localhost:???"
 
   /**
     * contextBaseUrl is not a required field. This url is added as the base url to your
@@ -44,7 +39,7 @@ class ZapRunner extends ZapTest{
     * browser test run).
     * This would usually be the base url of your service - eg http://localhost:9949.*
     */
-  override val contextBaseUrl: String = "http://localhost:9561/report-quarterly/income-and-expenses/sign-up.*"
+  override val contextBaseUrl: String = "http://localhost:???.*"
 
   /**
     * desiredTechnologyNames is not a required field. We recommend you don't change this
@@ -65,7 +60,7 @@ class ZapRunner extends ZapTest{
     */
 
 
-  override val routeToBeIgnoredFromContext: String = "http://localhost:9561/report-quarterly/income-and-expenses/sign-up/test-only/.*"
+  override val routeToBeIgnoredFromContext: String = "http://localhost:???/???/.*"
 
 
   /**

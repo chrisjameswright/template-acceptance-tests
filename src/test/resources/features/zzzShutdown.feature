@@ -1,7 +1,6 @@
 @Shutdown
 @BrowserStack
 @WAVE
-
 Feature: Shutdown Browser
 
   Scenario: Close the Browser after running all Features
