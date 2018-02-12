@@ -1,4 +1,5 @@
 @Example
+@BrowserStack
 Feature: Running against a web browser
 
   Scenario: Opening Google.com

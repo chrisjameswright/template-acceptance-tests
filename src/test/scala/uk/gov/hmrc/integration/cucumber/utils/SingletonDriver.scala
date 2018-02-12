@@ -1,6 +1,6 @@
 package uk.gov.hmrc.integration.cucumber.utils
 
-import java.io.{File, FileNotFoundException, IOException}
+import java.io.{FileNotFoundException, IOException}
 import java.net.{InetSocketAddress, URL}
 import java.util
 import java.util.Properties
@@ -59,7 +59,7 @@ class Driver {
     baseWindowHandle = instance.getWindowHandle
   }
 
-  def closeInstance() = {
+  def closeInstance(): Unit = {
     if (instance != null) {
 
       closeNewlyOpenedWindows()
@@ -116,7 +116,7 @@ class Driver {
       System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true")
       System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null")
 
-      if (seleniumProxy isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
+      if (seleniumProxy.isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
 
       val driver = new FirefoxDriver(options)
       val caps = driver.getCapabilities
@@ -153,7 +153,7 @@ class Driver {
       options.setCapability("javascript.enabled", javascriptEnabled)
       options.addArguments("--start-maximized")
       capabilities.setCapability(ChromeOptions.CAPABILITY, options)
-      if (seleniumProxy isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
+      if (seleniumProxy.isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
       options.merge(capabilities)
       val driver = new ChromeDriver(options)
       driver
@@ -185,7 +185,7 @@ class Driver {
 
       try {
         val prop: Properties = new Properties()
-        prop.load(this.getClass().getResourceAsStream("/browserConfig.properties"))
+        prop.load(this.getClass.getResourceAsStream("/browserConfig.properties"))
 
         userName = prop.getProperty("username")
         automateKey = prop.getProperty("automatekey")
@@ -202,13 +202,23 @@ class Driver {
       // set additional generic capabilities
       desCaps.setCapability("browserstack.debug", "true")
       desCaps.setCapability("browserstack.local", "true")
-      desCaps.setCapability("project", "ITSA")
-      desCaps.setCapability("build", "ITSA Build_1.0") //?????
+      desCaps.setCapability("project", "Template")
+      desCaps.setCapability("build", "Template Build_1.0") //?????
 
-      val bsUrl = s"http://$userName:$automateKey@hub.browserstack.com/wd/hub"
+      val bsUrl = s"http://$userName:$automateKey@hub-cloud.browserstack.com/wd/hub"
       val rwd = new RemoteWebDriver(new URL(bsUrl), desCaps)
       printCapabilities(rwd, DRIVER_INFO_FLAG)
       rwd
+    }
+
+    def getBrowserStackCapabilities: Map[String, Object] = {
+      val testDevice = System.getProperty("testDevice", "BS_Win8_Chrome_64")
+      val resourceUrl = s"/browserstackdata/$testDevice.json"
+      val cfgJsonString = Source.fromURL(getClass.getResource(resourceUrl)).mkString
+
+      val mapper = new ObjectMapper() with ScalaObjectMapper
+      mapper.registerModule(DefaultScalaModule)
+      mapper.readValue[Map[String, Object]](cfgJsonString)
     }
 
     def createChromeHeadlessDriver: WebDriver = {
@@ -224,16 +234,6 @@ class Driver {
       val browserVersion = caps.getVersion
       println(s"Browser name: $browserName, Version: $browserVersion")
       driver
-    }
-
-    def getBrowserStackCapabilities: Map[String, Object] = {
-      val testDevice = System.getProperty("testDevice", "BS_Win8_1_IE_11")
-      val resourceUrl = s"/browserstackdata/$testDevice.json"
-      val cfgJsonString = Source.fromURL(getClass.getResource(resourceUrl)).mkString
-
-      val mapper = new ObjectMapper() with ScalaObjectMapper
-      mapper.registerModule(DefaultScalaModule)
-      mapper.readValue[Map[String, Object]](cfgJsonString)
     }
 
     def printCapabilities(rwd: RemoteWebDriver, fullDump: Boolean): Unit = {
