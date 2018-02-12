@@ -1,6 +1,6 @@
 package uk.gov.hmrc.integration.cucumber.utils
 
-import java.io.{File, FileNotFoundException, IOException}
+import java.io.{FileNotFoundException, IOException}
 import java.net.{InetSocketAddress, URL}
 import java.util
 import java.util.Properties
@@ -20,6 +20,8 @@ import org.openqa.selenium.{Proxy, WebDriver}
 
 import scala.collection.JavaConversions._
 import scala.io.Source
+
+import scala.language.postfixOps
 
 
 object SingletonDriver extends Driver
@@ -212,7 +214,7 @@ class Driver {
     }
 
     def getBrowserStackCapabilities: Map[String, Object] = {
-      val testDevice = System.getProperty("testDevice", "BS_Win8_Chrome_38")
+      val testDevice = System.getProperty("testDevice", "BS_Win8_Chrome_64")
       val resourceUrl = s"/browserstackdata/$testDevice.json"
       val cfgJsonString = Source.fromURL(getClass.getResource(resourceUrl)).mkString
 

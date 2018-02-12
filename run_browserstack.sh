@@ -26,7 +26,7 @@ fi
 # PADS: declare -a setups=("iPad_Mini_v7" "iPad_Air_v8_3")
 # BROWSERS: declare -a setups=("BS_Win10_Chrome_v61" "BS_Win10_Firefox_v56" "BS_Win10_IE_v11" "BS_Win10_Edge_v15" "BS_Sierra_Chrome_v61" "BS_Win7_Chrome_v61" "BS_Win7_Firefox_v56" "BS_Win7_IE_v8" "BS_Win7_IE_v11" "BS_Win8_IE_v10" "BS_ElCapitan_Firefox_v56" "BS_Yosemite_Chrome_v61" "BS_iOS_iPhone5S_v7" "iPad_Mini_v7" "iPad_Air_v8_3")
 declare -a setups=("BS_Win10_Chrome_v64")
-#declare -a setups=(""BS_ElCapitan_Firefox_v58" "BS_iOS_iPhome5S_v7" "BS_Sierra_Chrome_v64" "BS_Win7_Chrome_v64" "BS_Win7_Firefox_v58" "BS_Win7_IE_v11" "BS_Win10_Chrome_v64" "BS_Win10_Edge_v16" "BS_Win10_Firefox_v58" "BS_Win10_IE_v11" "BS_Yosemite_Chrome_v64" "iPad_Air_v8_3" "iPad_Mini_v7")
+#declare -a setups=("BS_ElCapitan_Firefox_v58" "BS_iOS_iPhone5S_v7" "BS_Sierra_Chrome_v64" "BS_Win7_Chrome_v64" "BS_Win7_Firefox_v58" "BS_Win7_IE_v11" "BS_Win10_Chrome_v64" "BS_Win10_Edge_v16" "BS_Win10_Firefox_v58" "BS_Win10_IE_v11" "BS_Yosemite_Chrome_v64" "iPad_Air_v8_3" "iPad_Mini_v7")
 for setup in "${setups[@]}"
 do
     echo "******************** Loading config from $setup.json ********************"
