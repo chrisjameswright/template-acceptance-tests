@@ -21,8 +21,6 @@ import org.openqa.selenium.{Proxy, WebDriver}
 import scala.collection.JavaConversions._
 import scala.io.Source
 
-import scala.language.postfixOps
-
 
 object SingletonDriver extends Driver
 
@@ -61,7 +59,7 @@ class Driver {
     baseWindowHandle = instance.getWindowHandle
   }
 
-  def closeInstance() = {
+  def closeInstance(): Unit = {
     if (instance != null) {
 
       closeNewlyOpenedWindows()
@@ -118,7 +116,7 @@ class Driver {
       System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true")
       System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null")
 
-      if (seleniumProxy isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
+      if (seleniumProxy.isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
 
       val driver = new FirefoxDriver(options)
       val caps = driver.getCapabilities
@@ -155,7 +153,7 @@ class Driver {
       options.setCapability("javascript.enabled", javascriptEnabled)
       options.addArguments("--start-maximized")
       capabilities.setCapability(ChromeOptions.CAPABILITY, options)
-      if (seleniumProxy isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
+      if (seleniumProxy.isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
       options.merge(capabilities)
       val driver = new ChromeDriver(options)
       driver
