@@ -33,7 +33,7 @@ libraryDependencies ++= Seq(
   "junit" % "junit" % "4.12" % "test",
   "com.novocode" % "junit-interface" % "0.11" % "test",
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.8.9",
-  "com.fasterxml.jackson.module" % "jackson-module-scala_2.10" % "2.7.2",
+  "com.fasterxml.jackson.module" % "jackson-module-scala_2.10" % "2.8.9",
   "net.lightbody.bmp" % "browsermob-core" % "2.1.5",
   "uk.gov.hmrc" %% "zap-automation" % "0.19.0")
 

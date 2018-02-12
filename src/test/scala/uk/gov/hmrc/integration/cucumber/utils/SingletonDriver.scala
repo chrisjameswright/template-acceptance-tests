@@ -185,7 +185,7 @@ class Driver {
 
       try {
         val prop: Properties = new Properties()
-        prop.load(this.getClass().getResourceAsStream("/browserConfig.properties"))
+        prop.load(this.getClass.getResourceAsStream("/browserConfig.properties"))
 
         userName = prop.getProperty("username")
         automateKey = prop.getProperty("automatekey")
@@ -202,13 +202,23 @@ class Driver {
       // set additional generic capabilities
       desCaps.setCapability("browserstack.debug", "true")
       desCaps.setCapability("browserstack.local", "true")
-      desCaps.setCapability("project", "ITSA")
-      desCaps.setCapability("build", "ITSA Build_1.0") //?????
+      desCaps.setCapability("project", "Template")
+      desCaps.setCapability("build", "Template Build_1.0") //?????
 
-      val bsUrl = s"http://$userName:$automateKey@hub.browserstack.com/wd/hub"
+      val bsUrl = s"http://$userName:$automateKey@hub-cloud.browserstack.com/wd/hub"
       val rwd = new RemoteWebDriver(new URL(bsUrl), desCaps)
       printCapabilities(rwd, DRIVER_INFO_FLAG)
       rwd
+    }
+
+    def getBrowserStackCapabilities: Map[String, Object] = {
+      val testDevice = System.getProperty("testDevice", "BS_Win8_Chrome_38")
+      val resourceUrl = s"/browserstackdata/$testDevice.json"
+      val cfgJsonString = Source.fromURL(getClass.getResource(resourceUrl)).mkString
+
+      val mapper = new ObjectMapper() with ScalaObjectMapper
+      mapper.registerModule(DefaultScalaModule)
+      mapper.readValue[Map[String, Object]](cfgJsonString)
     }
 
     def createChromeHeadlessDriver: WebDriver = {
@@ -224,16 +234,6 @@ class Driver {
       val browserVersion = caps.getVersion
       println(s"Browser name: $browserName, Version: $browserVersion")
       driver
-    }
-
-    def getBrowserStackCapabilities: Map[String, Object] = {
-      val testDevice = System.getProperty("testDevice", "BS_Win8_1_IE_11")
-      val resourceUrl = s"/browserstackdata/$testDevice.json"
-      val cfgJsonString = Source.fromURL(getClass.getResource(resourceUrl)).mkString
-
-      val mapper = new ObjectMapper() with ScalaObjectMapper
-      mapper.registerModule(DefaultScalaModule)
-      mapper.readValue[Map[String, Object]](cfgJsonString)
     }
 
     def printCapabilities(rwd: RemoteWebDriver, fullDump: Boolean): Unit = {
