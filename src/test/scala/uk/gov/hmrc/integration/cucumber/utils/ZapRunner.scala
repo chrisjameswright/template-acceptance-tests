@@ -62,6 +62,12 @@ class ZapRunner extends ZapTest{
 
   override val routeToBeIgnoredFromContext: String = "http://localhost:???/???/.*"
 
+  /**
+    * Not a required field. You should set this to be true if you are testing an API.
+    * By default this assumes you are testing a UI and therefore is defaulted to be false.
+    */
+  override val testingAnApi: Boolean = false
+
 
   /**
     * If, when you run the Zap tests, you find alerts that you have investigated and don't see as a problem
