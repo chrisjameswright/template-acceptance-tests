@@ -292,11 +292,11 @@ class Driver {
       System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true")
       System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null")
 
-      //      if (seleniumProxy isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
+      if (seleniumProxy.isDefined) capabilities.setCapability(CapabilityType.PROXY, seleniumProxy.get)
 
       options.setProfile(profile)
       options.setAcceptInsecureCerts(true)
-      options.addArguments("--start-maximized")
+      options.addArguments("start-maximized")
       options.merge(capabilities)
 
       val driver = new FirefoxDriver(options)
@@ -304,32 +304,21 @@ class Driver {
       val browserName = caps.getBrowserName
       val browserVersion = caps.getVersion
 
-      println(s"Running ZAP Firefox Driver on $browserName, Version: $browserVersion")
+      println("Browser name & version: " + browserName + " " + browserVersion)
       driver
     }
 
     def createZapChromeDriver: WebDriver = {
-      if (StringUtils.isEmpty(systemProperties.getProperty("webdriver.chrome.driver"))) {
-        if (isMac)
-          systemProperties.setProperty("webdriver.chrome.driver", "drivers/chromedriver_mac64")
-        else if (isLinux && linuxArch == "amd32")
-          systemProperties.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux32")
-        else if (isWindows)
-          System.setProperty("webdriver.chrome.driver", "drivers//chromedriver_win32")
-        else
-          systemProperties.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux64")
-      }
-
-      var options = new ChromeOptions()
-      var capabilities = DesiredCapabilities.chrome()
+      System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux64")
+      val options = new ChromeOptions()
+      val capabilities = DesiredCapabilities.chrome()
       // need to have "--test-type" to allow "bad flags"
       // see https://stackoverflow.com/questions/41566892/chromeoptions-ignore-certificate-errors-does-not-get-rid-of-err-cert-authori
       options.addArguments("test-type")
       // to ignore the ssl cert checks (this is a bad flag)
       options.addArguments("ignore-certificate-error")
       options.setExperimentalOption("excludeSwitches", util.Arrays.asList("ignore-certificate-errors"))
-      options.addArguments("--start-maximized")
-
+      options.addArguments("start-maximized")
       val proxy = new Proxy()
       proxy.setHttpProxy(s"http://localhost:$zapProxyPort")
       capabilities.setCapability("proxy", proxy)
