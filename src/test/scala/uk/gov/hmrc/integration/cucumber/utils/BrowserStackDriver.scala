@@ -27,7 +27,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.remote.{DesiredCapabilities, RemoteWebDriver}
 
 import scala.io.Source
-
+import scala.collection.JavaConversions._
 
 trait BrowserStackDriver {
   self: Driver =>
