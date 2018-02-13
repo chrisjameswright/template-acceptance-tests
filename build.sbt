@@ -23,7 +23,6 @@ libraryDependencies ++= Seq(
   "org.seleniumhq.selenium" % "selenium-remote-driver" % "3.7.1",
   "org.seleniumhq.selenium" % "selenium-chrome-driver" % "3.7.1",
   "org.seleniumhq.selenium" % "selenium-firefox-driver" % "3.7.1",
-  "org.seleniumhq.selenium" % "selenium-htmlunit-driver" % "2.52.0" % "test",
   "com.typesafe.play" %% "play-json" % "2.5.12",
   "org.scalatest" %% "scalatest" % "3.0.1" % "test",
   "org.pegdown" % "pegdown" % "1.6.0" % "test",
