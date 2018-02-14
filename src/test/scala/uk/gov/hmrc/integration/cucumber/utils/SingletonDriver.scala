@@ -102,7 +102,6 @@ class Driver extends BrowserStackDriver {
       options.addArguments("disable-infobars")
       val capabilities: DesiredCapabilities = DesiredCapabilities.chrome()
       if (Option(System.getProperty("qa.proxy")).isDefined) capabilities.setCapability(CapabilityType.PROXY, setProxy())
-      options.setCapability("takesScreenshot", true)
       options.setCapability("javascript.enabled", javascriptEnabled)
       options.merge(capabilities)
       if(headless) options.addArguments("headless")
