@@ -17,7 +17,7 @@ else
 	else
 	   	wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
   	    unzip BrowserStackLocal-linux-x64.zip
-  	    ~/BrowserStackLocal-linux-x64.zip.delete
+  	    rm -r BrowserStackLocal-linux-x64.zip
 	fi
   . ./src/test/resources/browserConfig.properties
   ./BrowserStackLocal $automatekey &
