@@ -106,18 +106,32 @@ class Driver extends BrowserStackDriver {
       driver
     }
 
-
     def createZapFirefoxDriver: WebDriver = {
-      val proxy: Proxy = new Proxy()
-      proxy.setAutodetect(false)
-      proxy.setProxyType(ProxyType.MANUAL)
-      proxy.setHttpProxy("localhost:8080")
+      System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null")
+      val profile: FirefoxProfile = new FirefoxProfile()
+      profile.setAcceptUntrustedCertificates(true)
+      profile.setPreference("javascript.enabled", javascriptEnabled)
 
+      val options = new FirefoxOptions()
       val capabilities = DesiredCapabilities.firefox()
 
-      capabilities.setCapability(CapabilityType.PROXY, proxy)
+      options. merge(capabilities)
+      options.setProfile(profile)
+      options.setAcceptInsecureCerts(true)
 
-      new FirefoxDriver(capabilities)
+      val proxy = new Proxy()
+      proxy.setHttpProxy(s"http://localhost:$zapProxyPort")
+      capabilities setCapability("proxy", proxy)
+      capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options)
+
+      val driver = new FirefoxDriver(options)
+      val caps = driver.getCapabilities
+      val browserName = caps.getBrowserName
+      val browserVersion = caps.getVersion
+
+      println("Browser name & version: " + browserName + " " + browserVersion)
+      driver
+
     }
 
     def createZapChromeDriver: WebDriver = {
