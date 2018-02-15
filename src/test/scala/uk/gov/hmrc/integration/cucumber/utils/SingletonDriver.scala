@@ -35,9 +35,6 @@ class Driver extends BrowserStackDriver {
 
     instance = createBrowser()
     baseWindowHandle = instance.getWindowHandle
-
-    instance = createBrowser()
-    baseWindowHandle = instance.getWindowHandle
   }
 
   def closeInstance(): Unit = {
