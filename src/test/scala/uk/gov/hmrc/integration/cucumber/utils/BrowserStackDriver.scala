@@ -54,7 +54,7 @@ trait BrowserStackDriver {
     capabilities.setCapability("browserstack.debug", "true")
     capabilities.setCapability("browserstack.local", "true")
     capabilities.setCapability("project", "Template")
-    capabilities.setCapability("build", "Template Build_1.0") //?????
+    capabilities.setCapability("build", "Template Build_1.0")
 
     val bsUrl = s"http://$userName:$automateKey@hub-cloud.browserstack.com/wd/hub"
     val rwd = new RemoteWebDriver(new URL(bsUrl), capabilities)
