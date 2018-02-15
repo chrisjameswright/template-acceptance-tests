@@ -21,14 +21,14 @@ import uk.gov.hmrc.integration.cucumber.pages.ExamplePage._
 
 class ExampleStepDef extends ScalaDsl with EN {
 
-  When("""^A user wants to search the internet$"""){ () =>
+  Given("""^A user wants to search the internet$"""){ () =>
   }
 
   When("""^the user opens Google$"""){ () =>
     navigateTo(url)
   }
 
-  When("""^they see a search bar$"""){ () =>
+  Then("""^they see a search bar$"""){ () =>
     waitForPageToBeLoaded("lst-ib")
     clickById("lst-ib")
   }
