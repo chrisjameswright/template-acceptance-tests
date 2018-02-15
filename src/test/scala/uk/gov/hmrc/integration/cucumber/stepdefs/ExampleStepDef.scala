@@ -22,7 +22,6 @@ import uk.gov.hmrc.integration.cucumber.pages.ExamplePage._
 class ExampleStepDef extends ScalaDsl with EN {
 
   When("""^A user wants to search the internet$"""){ () =>
-  //enter valid criteria for what you would test for here
   }
 
   When("""^the user opens Google$"""){ () =>

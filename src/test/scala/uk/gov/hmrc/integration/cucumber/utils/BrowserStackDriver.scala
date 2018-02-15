@@ -32,8 +32,6 @@ import scala.collection.JavaConversions._
 trait BrowserStackDriver {
   self: Driver =>
 
-
-  // set flag to true to see full information about browserstack webdrivers on initialisation
   private val DRIVER_INFO_FLAG = false
 
   def browserStackSetup(capabilities: DesiredCapabilities): WebDriver = {
@@ -53,7 +51,6 @@ trait BrowserStackDriver {
       case e: IOException => e.printStackTrace();
     }
 
-    // set additional generic capabilities
     capabilities.setCapability("browserstack.debug", "true")
     capabilities.setCapability("browserstack.local", "true")
     capabilities.setCapability("project", "Template")
@@ -80,7 +77,6 @@ trait BrowserStackDriver {
     var value: Any = null
 
     println("RemoteWebDriver Basic Capabilities >>>>>>")
-    // step 1, print out the common caps which have getters
     val caps = rwd.getCapabilities
     val platform = caps.getPlatform
     println(s"platform : $platform")
@@ -89,7 +85,6 @@ trait BrowserStackDriver {
     val version = caps.getVersion
     println(s"version : $version")
 
-    // step 2, print out common caps which need to be explicitly retrieved using their key
     val capsMap = caps.asMap()
     val basicKeyList = List("os", "os_version", "mobile", "device", "deviceName")
     for (key <- basicKeyList) {
@@ -103,7 +98,6 @@ trait BrowserStackDriver {
     }
 
     if (fullDump) {
-      // step 3, if requested, dump everything
       println("Full Details >>>>>>")
       for (key <- capsMap.keySet()) {
         value = capsMap.get(key)
