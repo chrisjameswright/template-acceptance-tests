@@ -11,13 +11,16 @@ java 1.8
 
 Scala 2.11.7
 
-SBT to build 0.13.16
+SBT to build 0.13.17
 
-Getting started
-Ensure that you have a working linux environment.
+**Getting started:**
+   
+    Ensure that you have a working linux environment.
 
-Execution
-In /src/test/scala/uk/gov/hmrc/integration/cucumber there are scala classes which control what is run according to the tests tagged with the below tags. The main class is Runner which selects and runs tests marked @. You can run ./run_integration_local.sh to run tests against a local version of the application
+**Execution:**
+   
+    In /src/test/scala/uk/gov/hmrc/integration/cucumber there are scala classes which control what is run according to the tests tagged with the below tags. 
+    The main class is Runner which selects and runs tests marked @. You can run ./run_integration_local.sh to run tests against a local version of the application
 
 ###  Test Automation environment setup
 
@@ -70,7 +73,7 @@ BS_OS/Device_Version_Browser_BrowserVersion
 
 For Example:
 
-    BS_Win_8_1_Chrome_38
+    BS_Win10_Chrome_v64
 
 Once the JSON objects have been created, these need to be added to the run_browserstack.sh script.
 

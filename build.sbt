@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.8.9",
   "com.fasterxml.jackson.module" % "jackson-module-scala_2.10" % "2.8.9",
   "net.lightbody.bmp" % "browsermob-core" % "2.1.5",
-  "uk.gov.hmrc" %% "zap-automation" % "0.19.0")
+  "uk.gov.hmrc" %% "zap-automation" % "0.20.0")
 
 unmanagedJars in Compile += file("libs/harlib-1.1.1.jar")
 unmanagedJars in Compile += file("libs/proxy-2.4.2-SNAPSHOT.jar")
