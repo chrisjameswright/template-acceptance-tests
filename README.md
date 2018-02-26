@@ -30,6 +30,13 @@ In /src/test/scala/uk/gov/hmrc/integration/cucumber there are scala classes whic
 Each part of the application's functionality is described by feature files. The feature files are arranged into folders under src/test/features and grouped into the main areas of the application.
 Each step of the feature files is defined by executable test steps in the scala code under the src/test/scala/uk/gov/hmrc/integration/test/stepdefs area and those utilise Page object models under src/test/scala/uk/gov/hmrc/integration/cucumber/pages which are the single place where page specific properties and variables are configured.
 
+###  Example Feature
+The example feature calls the Authority Wizard page and relies on the following services being started :
+
+    AUTH_LOGIN_STUB
+    ASSETS_FRONTEND
+
+
 ### Browser Testing
 In order to run the tests via BrowserStack you need to create the following files with your BrowserStack username and automate key: 
  

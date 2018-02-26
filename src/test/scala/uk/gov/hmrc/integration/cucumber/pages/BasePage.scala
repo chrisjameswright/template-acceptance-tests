@@ -74,6 +74,7 @@ trait BasePage extends Matchers {
   def clickById(id: String) = findById(id).click()
   def clickByName(id: String, num: Int) = findByName(id).get(num).click()
   def clickByClass(id: String, num: Int) = findByClass(id).get(num).click()
+  def clickByCSS(css: String) = driver.findElement(By.cssSelector(css)).click()
 
   def verifyTextUsingElementId(elementId: String, expectedValue: String)= findById(elementId).getText shouldBe expectedValue
   def verifyInputUsingElementId(elementId: String, expectedValue: String)= findById(elementId).getAttribute("value") shouldBe expectedValue
@@ -116,7 +117,7 @@ trait BasePage extends Matchers {
 
   def checkPageHeading(text: String) = {
     fluentWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h1")))
-    findH1() shouldBe text
+    findH1().getText shouldBe text
   }
 
   def dropdownSelect(dropDownId: String, selection: String) = {
