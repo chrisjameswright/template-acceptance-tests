@@ -2,7 +2,7 @@
 @BrowserStack
 Feature: Running against a web browser
 
-  Scenario: Opening Google.com
-    Given A user wants to search the internet
-    When the user opens Google
-    Then they see a search bar
+  Scenario: Using the Auth Login Stub
+    Given A user wants to use the Auth Login Stub
+    When they enter valid auth criteria
+    Then they are redirected to that service

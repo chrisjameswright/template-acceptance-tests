@@ -17,20 +17,24 @@
 package uk.gov.hmrc.integration.cucumber.stepdefs
 
 import cucumber.api.scala.{EN, ScalaDsl}
+import uk.gov.hmrc.integration.cucumber.pages.{BasePage, ExamplePage}
 import uk.gov.hmrc.integration.cucumber.pages.ExamplePage._
 
 class ExampleStepDef extends ScalaDsl with EN {
 
-  Given("""^A user wants to search the internet$"""){ () =>
-  }
-
-  When("""^the user opens Google$"""){ () =>
+  Given("""^A user wants to use the Auth Login Stub$""") { () =>
     navigateTo(url)
+    checkPageHeading(header)
   }
 
-  Then("""^they see a search bar$"""){ () =>
-    waitForPageToBeLoaded("lst-ib")
-    clickById("lst-ib")
+  When("""^they enter valid auth criteria$""") { () =>
+    sendKeysByName("authorityId", credId)
+    sendKeysByName("redirectionUrl", url)
+    clickByCSS("Input[value='Submit']")
+  }
+
+  Then("""^they are redirected to that service$""") { () =>
+    checkPageHeading(header)
   }
 
 }
