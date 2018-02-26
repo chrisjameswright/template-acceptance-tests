@@ -33,8 +33,12 @@ Each step of the feature files is defined by executable test steps in the scala 
 ###  Example Feature
 The example feature calls the Authority Wizard page and relies on the following services being started :
 
-    AUTH_LOGIN_STUB
+
     ASSETS_FRONTEND
+    AUTH
+    AUTH_LOGIN_API
+    AUTH_LOGIN_STUB
+    USER_DETAILS
 
 
 ### Browser Testing
