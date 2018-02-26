@@ -17,6 +17,7 @@
 package uk.gov.hmrc.integration.cucumber.pages
 
 object ExamplePage extends BasePage {
-  val url    = "http://www.google.com"
-  val header = "Google"
+  val url    = "http://localhost:9949/auth-login-stub/gg-sign-in"
+  val header = "Authority Wizard"
+  val credId = "123456"
 }

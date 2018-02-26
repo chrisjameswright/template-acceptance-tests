@@ -71,7 +71,6 @@ class Driver extends BrowserStackDriver {
   private def createBrowser(): WebDriver = {
 
     def createFirefoxDriver: WebDriver = {
-      System.setProperty("webdriver.gecko.driver", "drivers/geckodriver")
       System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true")
       System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null")
       val profile = new FirefoxProfile()
@@ -91,7 +90,6 @@ class Driver extends BrowserStackDriver {
     def createBrowserStackDriver = browserStackSetup(new DesiredCapabilities(getBrowserStackCapabilities))
 
     def createChromeDriver(headless: Boolean): WebDriver = {
-      System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux64")
       val options = new ChromeOptions()
       options.addArguments("test-type")
       options.addArguments("--no-sandbox")
