@@ -1,5 +1,6 @@
 #!/bin/bash
 ENV="qa"
-BROWSER="firefox"
+BROWSER="chrome"
+DRIVER_PATH=/usr/local/bin/chromedriver
 
-sbt -Dbrowser=$BROWSER -Denvironment=$ENV  -Dwebdriver.gecko.driver=/drivers/geckodriver 'test-only uk.gov.hmrc.integration.cucumber.utils.RunnerQA'
+sbt -Dbrowser=$BROWSER -Denvironment=$ENV -Dwebdriver.chrome.driver=${DRIVER_PATH} 'test-only uk.gov.hmrc.integration.cucumber.utils.RunnerQA'
