@@ -1,11 +1,9 @@
 package uk.gov.hmrc.integration.cucumber.utils
 
 import java.net.InetSocketAddress
-import java.util
 import net.lightbody.bmp.client.ClientUtil
 import net.lightbody.bmp.proxy.auth.AuthType
 import net.lightbody.bmp.{BrowserMobProxy, BrowserMobProxyServer}
-import org.openqa.selenium.Proxy.ProxyType
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeOptions}
 import org.openqa.selenium.firefox.{FirefoxDriver, FirefoxOptions, FirefoxProfile}
 import org.openqa.selenium.remote.{CapabilityType, DesiredCapabilities}
@@ -17,8 +15,6 @@ import scala.collection.JavaConversions._
 object SingletonDriver extends Driver
 
 class Driver extends BrowserStackDriver {
-
-  import ZapRunner._
 
   var instance: WebDriver = null
   private var baseWindowHandle: String = null
@@ -104,51 +100,12 @@ class Driver extends BrowserStackDriver {
       driver
     }
 
-
-    def createZapFirefoxDriver: WebDriver = {
-      val proxy: Proxy = new Proxy()
-      proxy.setAutodetect(false)
-      proxy.setProxyType(ProxyType.MANUAL)
-      proxy.setHttpProxy("localhost:8080")
-
-      val capabilities = DesiredCapabilities.firefox()
-
-      capabilities.setCapability(CapabilityType.PROXY, proxy)
-
-      new FirefoxDriver(capabilities)
-    }
-
-    def createZapChromeDriver: WebDriver = {
-      val options = new ChromeOptions()
-      val capabilities = DesiredCapabilities.chrome()
-      options.addArguments("test-type")
-      options.addArguments("ignore-certificate-error")
-      options.setExperimentalOption("excludeSwitches", util.Arrays.asList("ignore-certificate-errors"))
-      options.addArguments("start-maximized")
-
-      val proxy = new Proxy()
-      proxy.setHttpProxy(s"http://localhost:$zapProxyPort")
-      capabilities.setCapability("proxy", proxy)
-      capabilities.setCapability(ChromeOptions.CAPABILITY, options)
-      options.merge(capabilities)
-
-      val driver = new ChromeDriver(options)
-      val caps = driver.getCapabilities
-      val browserName = caps.getBrowserName
-      val browserVersion = caps.getVersion
-
-      println("Browser name & version: " + browserName + " " + browserVersion)
-      driver
-    }
-
     val environmentProperty = System.getProperty("browser", "firefox")
     environmentProperty match {
       case "firefox" => createFirefoxDriver
       case "browserstack" => createBrowserStackDriver
       case "chrome" => createChromeDriver(false)
       case "chrome-headless" => createChromeDriver(true)
-      case "zap-firefox" => createZapFirefoxDriver
-      case "zap-chrome" => createZapChromeDriver
       case _ => throw new IllegalArgumentException(s"Browser type not recognised: -D$environmentProperty")
     }
   }

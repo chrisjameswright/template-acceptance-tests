@@ -90,17 +90,6 @@ To execute select **run_browserstack.sh** script
 Note i - if you only wish to run either the browsers or devices you need to remove the relevant entry from within run_browserstack.sh
 
 Note ii - the changes made to browserConfig.properties should not be pushed to GitHub and therefore you should make sure that this file is included on the gitignore file for your project
- 
- ### Penetration Testing via ZAP
- 
- Initially please see Confluence instructions which can be found [here](https://confluence.tools.tax.service.gov.uk/display/DTRG/Security+Testing) to access the ZAP application if it resides on your machine
- The Links section on the above page will have instructions for configuring ZAP to run from the GUI application
- 
- The tests are executed by running **run_zap.sh** (which calls ZapScanTest.scala)
- 
- - **Outputs**
-  When executed successfully a file is generated under the 'target' class of the project under zap-reports and listed as **report.html**
-  Select this file to access 'chrome' or 'firefox' icon which will open the report in your Chrome or Firefox browser
 
  ### Messages
     
