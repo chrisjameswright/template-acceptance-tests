@@ -14,7 +14,7 @@ fi
 ### Start ZAP daemon
 if ($startZapDaemon); then
     echo "Starting ZAP Daemon on port $zapProxyPort..."
-    zap.sh -daemon -config api.disablekey=true -port $zapProxyPort &
+    zap.sh -daemon -config api.disablekey=true -port ${zapProxyPort} &
 
     function finish {
         echo "Killing Zap Daemon..."

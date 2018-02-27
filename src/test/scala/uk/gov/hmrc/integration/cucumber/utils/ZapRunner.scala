@@ -20,7 +20,7 @@ class ZapRunner extends ZapTest{
     * testUrl is a required field - you'll need to set it in this file, for your project to compile.
     * It needs to be the URL of the start page of your application (not just localhost:port).
     */
-  override val testUrl: String = "http://localhost:???"
+  override val testUrl: String = "http://localhost:9949/auth-login-stub/gg-sign-in"
 
   /**
     * alertsBaseUrl is not a required field. This is the url that the zap-automation library

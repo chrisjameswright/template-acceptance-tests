@@ -1,4 +1,4 @@
-@Example
+@Example @Zap
 @BrowserStack
 Feature: Running against a web browser
 
