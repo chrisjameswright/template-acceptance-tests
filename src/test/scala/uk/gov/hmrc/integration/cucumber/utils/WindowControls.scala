@@ -5,7 +5,7 @@ import scala.collection.JavaConversions._
 
 trait WindowControls {
   val instance: WebDriver
-  val baseWindowHandle: String
+  lazy val baseWindowHandle: String = instance.getWindowHandle
 
   def closeExtraWindows(): Unit = {
     instance.getWindowHandles.toList
