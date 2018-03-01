@@ -19,10 +19,10 @@ trait BasePage extends Matchers {
   val url: String
   val header: String
 
-  val frontendPort: String = "8080"
-  val prodRoute: String = "example-service-route"
+  val frontendPort = "8080"
+  val prodRoute = "example-service-route"
 
-  val basePageUrl: String = s"$envUrl/$prodRoute"
+  val basePageUrl = s"$envUrl/$prodRoute"
 
   val driver: WebDriver = Driver.instance
 
