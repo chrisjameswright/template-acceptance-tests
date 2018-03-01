@@ -7,7 +7,7 @@ import org.junit.Assert
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Select}
 import org.openqa.selenium.{By, NoAlertPresentException, WebDriver}
 import org.scalatest.Matchers
-import uk.gov.hmrc.integration.cucumber.utils.SingletonDriver
+import uk.gov.hmrc.integration.cucumber.utils.driver.Driver
 
 object BasePage extends BasePage {
   val url = "DEFAULT"
@@ -19,12 +19,12 @@ trait BasePage extends Matchers {
   val url: String
   val header: String
 
-  val frontendPort = "8080"
-  val prodRoute = "example-service-route"
+  val frontendPort: String = "8080"
+  val prodRoute: String = "example-service-route"
 
-  val basePageUrl = s"$envUrl/$prodRoute"
+  val basePageUrl: String = s"$envUrl/$prodRoute"
 
-  val driver = SingletonDriver.getInstance()
+  val driver: WebDriver = Driver.instance
 
   def envUrl: String = {
     val environmentProperty = System.getProperty("environment", "local").toLowerCase

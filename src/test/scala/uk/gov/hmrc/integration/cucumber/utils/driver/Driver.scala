@@ -1,10 +1,10 @@
-package uk.gov.hmrc.integration.cucumber.utils
+package uk.gov.hmrc.integration.cucumber.utils.driver
 
 import com.typesafe.scalalogging.LazyLogging
 import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.integration.cucumber.utils.drivers.{ChromeBrowser, FirefoxBrowser}
+import uk.gov.hmrc.integration.cucumber.utils.driver.browsers.{ChromeBrowser, FirefoxBrowser}
 
-object Driver2 extends LazyLogging with WindowControls {
+object Driver extends LazyLogging with WindowControls {
 
   val instance: WebDriver = {
     sys.props.get("browser").map(_.toLowerCase) match {

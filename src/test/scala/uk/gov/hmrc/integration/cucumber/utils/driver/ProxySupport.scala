@@ -1,10 +1,10 @@
-package uk.gov.hmrc.integration.cucumber.utils
+package uk.gov.hmrc.integration.cucumber.utils.driver
 
 import java.net.InetSocketAddress
 
-import net.lightbody.bmp.{BrowserMobProxy, BrowserMobProxyServer}
 import net.lightbody.bmp.client.ClientUtil
 import net.lightbody.bmp.proxy.auth.AuthType
+import net.lightbody.bmp.{BrowserMobProxy, BrowserMobProxyServer}
 import org.openqa.selenium.Proxy
 
 trait ProxySupport {

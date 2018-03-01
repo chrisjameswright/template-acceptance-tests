@@ -1,9 +1,9 @@
-package uk.gov.hmrc.integration.cucumber.utils.drivers
+package uk.gov.hmrc.integration.cucumber.utils.driver.browsers
 
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeOptions}
 import org.openqa.selenium.remote.{CapabilityType, DesiredCapabilities}
-import uk.gov.hmrc.integration.cucumber.utils.ProxySupport
+import uk.gov.hmrc.integration.cucumber.utils.driver.ProxySupport
 
 object ChromeBrowser extends ProxySupport {
 

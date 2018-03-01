@@ -1,4 +1,4 @@
-package uk.gov.hmrc.integration.cucumber.utils.drivers
+package uk.gov.hmrc.integration.cucumber.utils.driver.browsers
 
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.{FirefoxDriver, FirefoxOptions, FirefoxProfile}

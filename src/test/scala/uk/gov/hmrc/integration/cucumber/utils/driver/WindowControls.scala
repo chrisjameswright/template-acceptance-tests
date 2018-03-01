@@ -1,6 +1,7 @@
-package uk.gov.hmrc.integration.cucumber.utils
+package uk.gov.hmrc.integration.cucumber.utils.driver
 
 import org.openqa.selenium.WebDriver
+
 import scala.collection.JavaConversions._
 
 trait WindowControls {
