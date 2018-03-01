@@ -1,0 +1,16 @@
+package uk.gov.hmrc.integration.cucumber.utils
+
+import org.openqa.selenium.WebDriver
+import scala.collection.JavaConversions._
+
+trait WindowControls {
+  val instance: WebDriver
+  val baseWindowHandle: String
+
+  def closeExtraWindows(): Unit = {
+    instance.getWindowHandles.toList
+      .filter(handle => handle != baseWindowHandle)
+      .foreach(instance.switchTo().window(_).close())
+    instance.switchTo().window(baseWindowHandle)
+  }
+}

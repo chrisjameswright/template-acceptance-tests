@@ -33,6 +33,8 @@ libraryDependencies ++= Seq(
   "com.novocode" % "junit-interface" % "0.11" % "test",
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.8.9",
   "com.fasterxml.jackson.module" % "jackson-module-scala_2.10" % "2.8.9",
-  "net.lightbody.bmp" % "browsermob-core" % "2.1.5"
+  "net.lightbody.bmp" % "browsermob-core" % "2.1.5",
+  "ch.qos.logback" % "logback-classic" % "1.2.3",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.8.0"
   )
 
